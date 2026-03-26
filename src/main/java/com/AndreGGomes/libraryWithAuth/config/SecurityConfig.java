@@ -29,7 +29,7 @@ public class SecurityConfig {
                         .requestMatchers("/h2-console/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .httpBasic(Customizer.withDefaults()) // Permite login simples via Postman (Auth -> Basic Auth)
+                .httpBasic(Customizer.withDefaults()) 
                 .build();
     }
 
