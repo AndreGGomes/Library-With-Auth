@@ -7,9 +7,10 @@ This is a personal project developed for educational purposes to practice buildi
 * **Spring Boot 4.0.5**
 * **Spring Security**
 * **Spring Data JPA**
-* **H2 Database** (In-memory for development)
 * **Lombok**
 * **Maven**
+* **PostgreSQL**
+* **Docker**
 
 ---
 
@@ -19,14 +20,23 @@ This is a personal project developed for educational purposes to practice buildi
 2. **Clone the repository**:
    
    ```bash
-   git clone [https://github.com/YourUsername/libraryWithAuth.git](https://github.com/YourUsername/libraryWithAuth.git)
+   git clone https://github.com/AndreGGomes/Library-With-Auth.git
    ```
-4. **Compile and Install dependecies**
+3. **Run docker**
+   ```bash
+   sudo docker compose up -d
+   ```
+4. **Run the script to populate the PostgreSQL database**
+   ```bash
+   sudo chmod +x ./populate_db.sh
+   sudo ./populate_db.sh
+   ```
+5. **Compile and Install dependecies**
    
    ```bash
    mvn clean install
    ```
-5. **Run the application**
+6. **Run the application**
    
    ```bash
    mvn spring-boot:run
@@ -39,12 +49,10 @@ This is a personal project developed for educational purposes to practice buildi
 
 ## Initial Admin Credentials
 
-The project is initialized via data.sql with default admin:
+The admin credentials are initialized in the database from the **populate_db** script:
 
 - **username**: Admin
 - **Password**: admin123 (encripted via BCrypt)
-
-  > **Note on Security:** The administrator credentials (username and password) are **not hardcoded** in the source code. They are securely retrieved from the database. The password stored in the database is encrypted using the **BCrypt** hashing algorithm, ensuring that plain-text passwords are never exposed.
 
 ## REST API Endpoints
 
