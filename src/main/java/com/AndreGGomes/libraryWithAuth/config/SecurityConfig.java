@@ -19,17 +19,17 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(csrf -> csrf.disable())
-                .headers(headers -> headers.frameOptions(frame -> frame.disable())) // Para o H2 Console
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Recomendado para APIs
+                .headers(headers -> headers.frameOptions(frame -> frame.disable())) 
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) 
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.GET, "/books/**").permitAll() // Qualquer um lê
-                        .requestMatchers(HttpMethod.POST, "/books/**").hasRole("ADMIN") // Apenas Admin cria
-                        .requestMatchers(HttpMethod.PUT, "/books/**").hasRole("ADMIN")  // Apenas Admin edita
-                        .requestMatchers(HttpMethod.DELETE, "/books/**").hasRole("ADMIN") // Apenas Admin deleta
-                        .requestMatchers("/h2-console/**").permitAll() // Libera o banco para você ver
+                        .requestMatchers(HttpMethod.GET, "/books/**").permitAll() 
+                        .requestMatchers(HttpMethod.POST, "/books/**").hasRole("ADMIN") 
+                        .requestMatchers(HttpMethod.PUT, "/books/**").hasRole("ADMIN")  
+                        .requestMatchers(HttpMethod.DELETE, "/books/**").hasRole("ADMIN") 
+                        .requestMatchers("/h2-console/**").permitAll() 
                         .anyRequest().authenticated()
                 )
-                .httpBasic(Customizer.withDefaults()) // Permite login simples via Postman (Auth -> Basic Auth)
+                .httpBasic(Customizer.withDefaults())
                 .build();
     }
 
