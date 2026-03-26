@@ -7,7 +7,7 @@ DB_NAME="library_db"
 ADMIN_PASS='$2a$12$xNxE0P5963lzKPi5wfUOCOxfn51aSm2r4Z4MNJlceT56u3sr0Hx9G'
 
 docker exec -i $CONTAINER_NAME psql -U $DB_USER -d $DB_NAME <<'EOF'
--- Criar tabela de usuários se não existir
+-- Creating user table if it does not exists
 CREATE TABLE IF NOT EXISTS users (
     id BIGSERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
     role VARCHAR(255)
 );
 
--- Criar tabela de livros se não existir
+-- Creating books table if it does not exists
 CREATE TABLE IF NOT EXISTS books (
     id BIGSERIAL PRIMARY KEY,
     title VARCHAR(255),
