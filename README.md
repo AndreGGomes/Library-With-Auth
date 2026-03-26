@@ -100,5 +100,15 @@ Endpoint: /books/get
 
 Auth: No auth required.
 
+---
+
+## Testing the API
+The endpoints were tested and validated using **Postman**. 
+
+To test the administrative routes (POST, PUT, DELETE), make sure to:
+1. Select the **Basic Auth** tab in Postman.
+2. Enter the credentials: `Admin` / `admin123`.
+3. Set the Body to **raw** and format to **JSON** for the requests that require it.
+
 
   
