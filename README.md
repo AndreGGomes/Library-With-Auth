@@ -19,7 +19,7 @@ This is a personal project developed for educational purposes to practice buildi
 2. **Clone the repository**:
    
    ```bash
-   git clone [https://github.com/YourUsername/libraryWithAuth.git](https://github.com/YourUsername/libraryWithAuth.git)
+   git clone https://github.com/AndreGGomes/Library-With-Auth.git
    ```
 4. **Compile and Install dependecies**
    
